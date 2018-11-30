@@ -20,7 +20,7 @@ void sjf_calculate_time(Process *p, int len)
 	p[0].waiting_time = 0;
 	curr_time = p[0].burst;
 
-	for(i = 1; i < len; i++)
+	for (i = 1; i < len; i++)
 	{
 		for (j = 1; j < len; j++)
 		{
@@ -37,8 +37,8 @@ void sjf_calculate_time(Process *p, int len)
 		for (j = i; j < len; j++)
 		{
 			if ((p[j].completed == FALSE)
-					&& (p[j].arrive_time <= curr_time)
-						&& (p[j].burst < p[min].burst))
+				&& (p[j].arrive_time <= curr_time)
+				&& (p[j].burst < p[min].burst))
 			{
 				min = j;
 			}

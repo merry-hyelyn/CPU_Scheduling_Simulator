@@ -9,10 +9,10 @@
 #include "./PrintTable.h"
 
 /**
- * [srt_calculate_time SRT 알고리즘 시간 계산 함수]
- * @param p   [프로세스 구조체 배열]
- * @param len [프로세스 갯수]
- */
+* [srt_calculate_time SRT 알고리즘 시간 계산 함수]
+* @param p   [프로세스 구조체 배열]
+* @param len [프로세스 갯수]
+*/
 void srt_calculate_time(Process *p, int len)
 {
 	int i;
@@ -55,10 +55,10 @@ void srt_calculate_time(Process *p, int len)
 			for (i = 0; i < len; i++)
 			{
 				/* 완료되지 않았으며 도착시간이 현재시간보다 작거나 같으며
-				   현재 최소작업 시간보다 남은 실행시간이 작을 경우 */
+				현재 최소작업 시간보다 남은 실행시간이 작을 경우 */
 				if ((p[i].completed == FALSE)
-						&& (p[i].arrive_time <= current_time)
-							&& (shortest_remain_time > remain_burst_time[i]))
+					&& (p[i].arrive_time <= current_time)
+					&& (shortest_remain_time > remain_burst_time[i]))
 				{
 					shortest_remain_time = remain_burst_time[i];
 					// 최소 작업 시간 갱신
@@ -75,9 +75,9 @@ void srt_calculate_time(Process *p, int len)
 			for (i = 0; i < len; i++)
 			{
 				/* 완료되지 않았으며 현재 최소작업 시간보다
-				   남은 실행시간이 작을 경우 */
+				남은 실행시간이 작을 경우 */
 				if ((p[i].completed == FALSE)
-						&& (shortest_remain_time > remain_burst_time[i]))
+					&& (shortest_remain_time > remain_burst_time[i]))
 				{
 					shortest_remain_time = remain_burst_time[i];
 					// 최소 작업 시간 갱신
@@ -119,10 +119,10 @@ void srt_calculate_time(Process *p, int len)
 }
 
 /**
- * [srt_print_gantt_chart 간트 차트 출력 함수]
- * @param p   [프로세스 구조체 배열]
- * @param len [프로세스 갯수]
- */
+* [srt_print_gantt_chart 간트 차트 출력 함수]
+* @param p   [프로세스 구조체 배열]
+* @param len [프로세스 갯수]
+*/
 void srt_print_gantt_chart(Process *p, int len)
 {
 	int i;
@@ -157,7 +157,7 @@ void srt_print_gantt_chart(Process *p, int len)
 			for (i = 0; i < len; i++)
 			{
 				if ((p[i].completed == FALSE)
-						&& (p[i].arrive_time <= current_time))
+					&& (p[i].arrive_time <= current_time))
 				{
 					if (shortest_remain_time > remain_burst_time[i])
 					{
@@ -186,7 +186,7 @@ void srt_print_gantt_chart(Process *p, int len)
 		/* 이전에 실행된 프로세스와 다른 프로세스일 경우 */
 		if (pre_k != k)
 			printf(" ");
-			// 공백 출력
+		// 공백 출력
 
 		printf("--");
 		remain_burst_time[k]--;
@@ -208,7 +208,7 @@ void srt_print_gantt_chart(Process *p, int len)
 	printf("\n\t|");
 
 	/* 동일 알고리즘을 실행하며 프로세스 아이디 출력
-	   이전 프로세스와 비교하며 \b 사용하여 간격 조절 */
+	이전 프로세스와 비교하며 \b 사용하여 간격 조절 */
 	while (current_time <= total_burst_time)
 	{
 		/* 현재 시간이 총 실행시간과 다를 경우 */
@@ -222,7 +222,7 @@ void srt_print_gantt_chart(Process *p, int len)
 				{
 					if ((p[i].completed == FALSE)
 						&& (p[i].arrive_time <= current_time)
-							&& (shortest_remain_time > remain_burst_time[i]))
+						&& (shortest_remain_time > remain_burst_time[i]))
 					{
 						shortest_remain_time = remain_burst_time[i];
 						k = i;
@@ -333,7 +333,7 @@ void srt_print_gantt_chart(Process *p, int len)
 			{
 				if ((p[i].completed == FALSE)
 					&& (p[i].arrive_time <= current_time)
-						&& (shortest_remain_time > remain_burst_time[i]))
+					&& (shortest_remain_time > remain_burst_time[i]))
 				{
 					shortest_remain_time = remain_burst_time[i];
 					k = i;
@@ -389,7 +389,7 @@ void srt_print_gantt_chart(Process *p, int len)
 				{
 					if ((p[i].completed == FALSE)
 						&& (p[i].arrive_time <= current_time)
-							&& (shortest_remain_time > remain_burst_time[i]))
+						&& (shortest_remain_time > remain_burst_time[i]))
 					{
 						shortest_remain_time = remain_burst_time[i];
 						k = i;
@@ -456,10 +456,10 @@ void srt_print_gantt_chart(Process *p, int len)
 }
 
 /**
- * [SRT SRT 알고리즘 실행 함수]
- * @param p   [프로세스 구조체 배열]
- * @param len [프로세스 갯수]
- */
+* [SRT SRT 알고리즘 실행 함수]
+* @param p   [프로세스 구조체 배열]
+* @param len [프로세스 갯수]
+*/
 void SRT(Process *p, int len)
 {
 	int i;

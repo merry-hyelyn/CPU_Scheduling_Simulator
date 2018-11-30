@@ -7,10 +7,10 @@
 #include "./Process.h"
 
 /**
- * [print_table 프로세스 데이터 테이블 출력 함수]
- * @param p [프로세스 구조체 배열]
- * @param n [프로세스 갯수]
- */
+* [print_table 프로세스 데이터 테이블 출력 함수]
+* @param p [프로세스 구조체 배열]
+* @param n [프로세스 갯수]
+*/
 void print_table(Process p[], int n)
 {
 	int i;
